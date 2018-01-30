@@ -1,0 +1,30 @@
+print ('Hellow World!')
+
+n = 0
+a = 0
+b = 0
+i = 1
+avg = 0
+total = 0
+avgPairList = []
+with open('untitled.txt', 'r') as f:
+  for line in f:
+    for s in line.split():
+      num = int(s) 
+      if i == 1:
+        a = num
+        i = i+1
+      elif i == 2:
+        b = num
+        avg = (a+b)/2
+        avgPairList.append(avg)
+        i = 1
+    
+      print (num)
+      total = total + num
+      n = n+1  
+print("There are " + str(n) +" numbers")
+print("The average is " + str(total/n))
+
+for i in range(len(avgPairList)):
+     print( avgPairList[i] )
