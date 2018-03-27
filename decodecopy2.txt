@@ -1,0 +1,43 @@
+i = 0
+j = 0
+codeList = []
+numberOfZeros = 0
+
+
+for x in zeroL:
+    #print(x)
+    #print(encodeL[i])
+    dif = abs(int(x)-int(encodeL[i]))
+    if dif == 0:
+        codeList.append(0)
+        numberOfZeros +=1
+        #print("1 added")
+    elif dif == 1:
+        codeList.append(1)
+        numberOfZeros =0
+        #print("0 added")
+    else:
+        print("not an encoded file")
+        break
+    i += 1
+i = 0
+tempStr =""
+for y in codeList:
+    tempList = codeList[j:j+7]
+    print("tempList is ", tempList)
+    if j>7:
+        tempStr = ''.join(str(e) for e in tempList)
+        print("here")
+    if tempStr == "0000000":
+        print("about to break")
+        break
+    j +=1
+finalCode = codeList[0:j]
+
+print("the code list is ",finalCode)
+codeStr = ''.join(str(e) for e in finalCode)
+n = int('0b'+codeStr, 2)
+finalCode = n.to_bytes((n.bit_length() + 7) // 8, 'big').decode()
+
+print(finalCode)
+    

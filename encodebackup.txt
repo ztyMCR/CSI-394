@@ -1,0 +1,30 @@
+i = 0
+newList = []
+print("the encode list is",encodeList)
+for x in zeroL:
+    if encodeList[i] == 1:
+        if zeroL[i] == 255:
+            newList.append(x-1)
+        else:
+            newList.append(x+1)
+        print("1 added")
+    else:
+        newList.append(x)
+        print("0 added")
+    i += 1
+    if i == len(encodeList):
+        break
+newList.extend(zeroL[i:])
+
+with open('encode.ppm', 'w') as fout:
+    fout.write(first_line)
+    fout.write(str(width))
+    fout.write(" ")
+    fout.write(str(height)+"\n")
+    
+    fout.write(third_line)
+    for i in range(len(newList)):
+        fout.write(str(newList[i])+"\n")
+        
+        
+print("done writing")
